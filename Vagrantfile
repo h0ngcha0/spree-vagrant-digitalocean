@@ -25,6 +25,7 @@ Vagrant::Config.run do |config|
   # computers to access the VM, whereas host only networking does not.
   config.vm.forward_port 3000, 3000
 
+  # add vagrant user in admin group, thus capable of performing sudo commands
   config.vm.provision "shell", inline: "sudo usermod -g admin vagrant"
   
   # Share an additional folder to the guest VM. The first argument is
