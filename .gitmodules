@@ -1,0 +1,24 @@
+[submodule "spree-dev-recipes/cookbooks/system_packages"]
+	path = spree-dev-recipes/cookbooks/system_packages
+	url = git://github.com/coroutine/chef-system_packages.git
+[submodule "spree-dev-recipes/cookbooks/rvm"]
+	path = spree-dev-recipes/cookbooks/rvm
+	url = git://github.com/fnichol/chef-rvm.git
+[submodule "spree-dev-recipes/cookbooks/openssl"]
+	path = spree-dev-recipes/cookbooks/openssl
+	url = git://github.com/opscode-cookbooks/openssl.git
+[submodule "spree-dev-recipes/cookbooks/ohmyzsh"]
+	path = spree-dev-recipes/cookbooks/ohmyzsh
+	url = git://github.com/binaryphile/chef-ohmyzsh.git
+[submodule "spree-dev-recipes/cookbooks/mysql"]
+	path = spree-dev-recipes/cookbooks/mysql
+	url = git://github.com/opscode-cookbooks/mysql.git
+[submodule "spree-dev-recipes/cookbooks/git"]
+	path = spree-dev-recipes/cookbooks/git
+	url = git://github.com/opscode-cookbooks/git.git
+[submodule "spree-dev-recipes/cookbooks/build-essential"]
+	path = spree-dev-recipes/cookbooks/build-essential
+	url = git://github.com/opscode-cookbooks/build-essential.git
+[submodule "spree-dev-recipes/cookbooks/apt"]
+	path = spree-dev-recipes/cookbooks/apt
+	url = git://github.com/opscode-cookbooks/apt.git
