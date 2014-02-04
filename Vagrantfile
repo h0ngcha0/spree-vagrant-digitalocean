@@ -25,6 +25,8 @@ Vagrant::Config.run do |config|
   # computers to access the VM, whereas host only networking does not.
   config.vm.forward_port 3000, 3000
 
+  config.vm.provision "shell", inline: "sudo usermod -g admin vagrant"
+  
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
@@ -55,8 +57,8 @@ Vagrant::Config.run do |config|
         server_debian_password: ""
       },
       rvm: { 
-        #default_ruby: "ruby-1.9.3", # for rvm::system
-        user_default_ruby: "ruby-1.9.3", # for rvm::user
+        default_ruby: "2.0.0", # for rvm::system
+        user_default_ruby: "2.0.0", # for rvm::user
         user_installs: [
           {
             user: "vagrant"
@@ -69,3 +71,4 @@ Vagrant::Config.run do |config|
     }
   end
 end
+
