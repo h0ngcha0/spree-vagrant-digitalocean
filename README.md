@@ -20,5 +20,5 @@ vagrant ssh
 to ssh to the VM and install rails:
 
 ```shell
-sudo gem install rails -v 4.0.0
+gem install rails -v 4.0.0
 ```

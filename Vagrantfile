@@ -1,11 +1,13 @@
-Vagrant::Config.run do |config|
+VAGRANTFILE_API_VSN = "2"
+
+Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise64lts"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  #config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -23,8 +25,8 @@ Vagrant::Config.run do |config|
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-  config.vm.forward_port 3000, 3000
-
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  
   # add vagrant user in admin group, thus capable of performing sudo commands
   config.vm.provision "shell", inline: "sudo usermod -g admin vagrant"
   
@@ -33,6 +35,9 @@ Vagrant::Config.run do |config|
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
+  config.vm.synced_folder "spree", "/server/spree"
+  config.vm.synced_folder "monadex", "/server/monadex"
+  
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding 
   # some recipes and/or roles.
