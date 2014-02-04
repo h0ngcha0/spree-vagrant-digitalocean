@@ -10,3 +10,15 @@ git submodule update --init
 vagrant box add precise64lts http://files.vagrantup.com/precise64.box
 vagrant up
 ```
+
+After the VM is up and running, run:
+
+```shell
+vagrant ssh
+```
+
+to ssh to the VM and install rails:
+
+```shell
+sudo gem install rails -v 4.0.0
+```
