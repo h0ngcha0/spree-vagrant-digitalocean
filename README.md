@@ -7,7 +7,6 @@ After installing vagrant and chef, run the following commands:
 
 ```shell
 git submodule update --init
-vagrant box add precise64lts http://files.vagrantup.com/precise64.box
 vagrant up
 ```
 
@@ -21,4 +20,5 @@ to ssh to the VM and install rails:
 
 ```shell
 gem install rails -v 4.0.0
+gem install therubyracer
 ```
