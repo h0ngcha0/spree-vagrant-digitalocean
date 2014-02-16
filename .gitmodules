@@ -37,3 +37,9 @@
 [submodule "spree-dev-recipes/cookbooks/chef_gem"]
 	path = spree-dev-recipes/cookbooks/chef_gem
 	url = git@github.com:hw-cookbooks/chef_gem.git
+[submodule "spree-dev-recipes/cookbooks/ohmyzsh"]
+	path = spree-dev-recipes/cookbooks/ohmyzsh
+	url = git@github.com:liuhongchao/ohmyzsh-cookbook.git
+[submodule "spree-dev-recipes/cookbooks/rvm"]
+	path = spree-dev-recipes/cookbooks/rvm
+	url = git@github.com:liuhongchao/rvm-cookbook.git
