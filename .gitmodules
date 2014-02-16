@@ -22,3 +22,24 @@
 [submodule "spree-dev-recipes/cookbooks/apt"]
 	path = spree-dev-recipes/cookbooks/apt
 	url = git://github.com/opscode-cookbooks/apt.git
+[submodule "spree-dev-recipes/cookbooks/dmg"]
+	path = spree-dev-recipes/cookbooks/dmg
+	url = git@github.com:opscode-cookbooks/dmg.git
+[submodule "spree-dev-recipes/cookbooks/runit"]
+	path = spree-dev-recipes/cookbooks/runit
+	url = git@github.com:cookbooks/runit.git
+[submodule "spree-dev-recipes/cookbooks/windows"]
+	path = spree-dev-recipes/cookbooks/windows
+	url = git@github.com:opscode-cookbooks/windows.git
+[submodule "spree-dev-recipes/cookbooks/chef_handler"]
+	path = spree-dev-recipes/cookbooks/chef_handler
+	url = git@github.com:opscode-cookbooks/chef_handler.git
+[submodule "spree-dev-recipes/cookbooks/yum"]
+	path = spree-dev-recipes/cookbooks/yum
+	url = git@github.com:opscode-cookbooks/yum.git
+[submodule "spree-dev-recipes/cookbooks/yum-epel"]
+	path = spree-dev-recipes/cookbooks/yum-epel
+	url = git@github.com:opscode-cookbooks/yum-epel.git
+[submodule "spree-dev-recipes/cookbooks/chef_gem"]
+	path = spree-dev-recipes/cookbooks/chef_gem
+	url = git@github.com:hw-cookbooks/chef_gem.git

@@ -3,12 +3,21 @@ VAGRANTFILE_API_VSN = "2"
 Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64lts"
+  config.vm.box = "dummy"
 
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
+  config.vm.provider :aws do |aws, override|
+    aws.access_key_id = "YOUR_ACCESS_KEY"
+    aws.secret_access_key = "YOUR_SECRET_ACCESS_KEY"
+    aws.keypair_name = "aws"
+    aws.instance_type = "t1.micro"
+    aws.ami = "ami-6aad335a"
+    aws.region = "us-west-2"
+    aws.security_groups = "launch-wizard-1"
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "YOUR_PATH_TO_PRIVATE_KEY"
+  end
+  
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
 
@@ -27,8 +36,7 @@ Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
   # computers to access the VM, whereas host only networking does not.
   config.vm.network "forwarded_port", guest: 3000, host: 3000
   
-  # add vagrant user in admin group, thus capable of performing sudo commands
-  config.vm.provision "shell", inline: "sudo usermod -g admin vagrant"
+  config.vm.provision "shell", path: "./provision/shell/chef_solo_bootstrap.sh"
 
   # Setup the Synced folder here.
   #config.vm.synced_folder "spree", "/server/spree"
@@ -63,7 +71,7 @@ Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
         user_default_ruby: "2.0.0", # for rvm::user
         user_installs: [
           {
-            user: "vagrant"
+            user: "ubuntu"
           }
         ]
       },
