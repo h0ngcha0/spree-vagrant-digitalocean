@@ -4,18 +4,23 @@ Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "dummy"
+  config.vm.define :server_name do |server_name|
+    server_name.vm.hostname = 'monadexdev'
+  end    
 
+  config.vm.provider :digital_ocean do |provider, override|
+    override.vm.box = 'digital_ocean'
+    override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+    override.ssh.private_key_path = '~/.ssh/id_rsa_do'
+    override.ssh.username = 'hongchao.liu'
 
-  config.vm.provider :aws do |aws, override|
-    aws.access_key_id = "YOUR_ACCESS_KEY"
-    aws.secret_access_key = "YOUR_SECRET_ACCESS_KEY"
-    aws.keypair_name = "aws"
-    aws.instance_type = "t1.micro"
-    aws.ami = "ami-6aad335a"
-    aws.region = "us-west-2"
-    aws.security_groups = "launch-wizard-1"
-    override.ssh.username = "ubuntu"
-    override.ssh.private_key_path = "YOUR_PATH_TO_PRIVATE_KEY"
+    provider.client_id = $CLIENT_ID
+    provider.api_key = $API_KEY
+    provider.region = 'Amsterdam 2'
+    provider.size = '2GB'
+    provider.private_networking = true
+    provider.ssh_key_name = 'hongchao.liu'
+    provider.setup = true
   end
   
   # Boot with a GUI so you can see the screen. (Default is headless)
@@ -71,7 +76,7 @@ Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
         user_default_ruby: "2.0.0", # for rvm::user
         user_installs: [
           {
-            user: "ubuntu"
+            user: "hongchao.liu"
           }
         ]
       },
