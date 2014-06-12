@@ -81,9 +81,11 @@ Vagrant::configure(VAGRANTFILE_API_VSN) do |config|
         ]
       },
       system_packages: {
-        packages: "imagemagick libmagickwand-dev ranger tmux emacs vim" # "build-essential git zsh" already in ohmyzsh
+        packages: "imagemagick libmagickwand-dev ranger tmux emacs24 vim libv8-dev" # "build-essential git zsh" already in ohmyzsh
       }
     }
   end
+
+  config.vm.provision "shell", path: "./provision/shell/install_rails_app.sh"
 end
 
